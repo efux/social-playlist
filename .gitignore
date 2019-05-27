@@ -1,5 +1,4 @@
 .idea
-.gradle
-gradle
-docs/node_modules
-dist
+.gradle/
+docs/node_modules/
+dist/
