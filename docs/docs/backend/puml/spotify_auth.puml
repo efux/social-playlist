@@ -1,0 +1,27 @@
+@startuml
+
+User -> Backend: /api/login
+
+note right of Backend
+	Server knows Client ID
+	and Client Secret.
+end note
+
+Backend --> User: Redirect user to Spotify login page
+
+User -> Spotify: Login with Credentials
+
+Spotify --> Backend: Send Authorization Code
+
+Backend -> Spotify: Request token with authorization code
+Spotify --> Backend: Token
+
+note right of Backend
+	For our use-case the token
+	of the user will be store
+	on the backend.
+end note
+
+Backend --> User: Redirect user to other page
+
+@enduml

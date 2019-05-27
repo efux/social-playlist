@@ -1,0 +1,72 @@
+@startuml
+
+skinparam linetype ortho
+
+package api {
+    class PlaylistController {
+        +PlaylistController(PlaylistProvider playlistProvider)
+        +RedirectView login()
+        +String redirect(String code)
+        +List<TrackDto> getTracksForPlaylist()
+    }
+
+    class TrackDto {
+        -String uri
+        -String title
+        -List<String> artists
+        +TrackDto(String uri, String title, List<String> artists>
+        +{static} map(Track track)
+        +String getUri()
+        +String getTitle()
+        +List<String> getArtists()
+    }
+}
+
+package domain {
+    interface PlaylistProvider << interface >> {
+        URI getAuthorizationCodeUri()
+        void receiveToken(String code)
+        List<Track> getTracksForPlaylist()
+    }
+    interface StreamingProvider << interface >> {
+        URI getAuthorizationCodeUri()
+        void receiveToken(String code)
+        List<Track> getTracksOfPlaylist(String playlistId)
+    }
+    class PlaylistService {
+        +PlaylistService(StreamingProvider streamingProvider)
+    }
+    class Track {
+       -String uri
+       -String title
+       -List<String> artists
+       +Track(String uri, String title, List<String> artists>
+       +String getUri()
+       +String getTitle()
+       +List<String> getArtists()
+   }
+}
+
+package spotifyapi {
+    class SpotifyClient {
+        +SpotifyClient(String clientId, String clientSecret, string redirectUrl)
+        +{static} Track map(com.wrapper.spotify.model_objects.specification.Track track)
+    }
+}
+
+' implementations
+PlaylistService ...|> PlaylistProvider
+SpotifyClient ...|> StreamingProvider
+
+' usages
+PlaylistController ..> PlaylistProvider
+TrackDto ..> Track
+PlaylistService .> StreamingProvider
+SpotifyClient .> Track
+PlaylistController .> TrackDto
+PlaylistController .> Track
+
+' class SwaggerConfig
+' class SpotifyPlaylistApplication
+
+@enduml

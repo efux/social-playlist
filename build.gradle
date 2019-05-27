@@ -1,0 +1,4 @@
+allprojects {
+    group = 'com.zuehlke.hackathon'
+    version = '0.0.1-SNAPSHOT'
+}
