@@ -119,6 +119,8 @@ git commit -m "My first commit"
 
     ```bash
     git push heroku master
+    ...
+    https://<APPLICATION NAME>.herokuapp.com/ deployed to Heroku
     ```
 
 ::: tip EXERCISE

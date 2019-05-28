@@ -12,7 +12,7 @@ npm install -g @angular/cli
 
 ## Create a workspace and initial application
 
-Create a new workspace and initial app project:
+Open a console terminal in the root of your project and create a new workspace and initial app project.
 
 ```bash
 ng new ui
