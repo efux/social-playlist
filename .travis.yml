@@ -1,5 +1,4 @@
 language: java
-install: true
 jdk:
   - oraclejdk8
 script:
@@ -10,7 +9,7 @@ deploy:
   local_dir: docs/docs/.vuepress/dist
   github-token: $GITHUB_TOKEN
   repo: lakermann/social-playlist
-  keep-history: true
+  keep-history: false
   target-branch: gh-pages
   on:
     branch: master
