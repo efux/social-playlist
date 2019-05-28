@@ -383,6 +383,6 @@ Using the proxying support in webpack's dev server we can redirect the `/api` ca
 
 ::: warning
 
-* In order to login you have to call <http://localhost:8080/api/login> manually in the browser.
+* In order to login you have to call `/api/login` manually in the browser.
 
 :::
