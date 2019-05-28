@@ -384,9 +384,7 @@ Now you can start the application, [login](http://localhost:8080/api/login) and 
 ::: tip EXERCISE
 Create the following endpoint:
 
-```
-GET /api/tracks?query={queryString}
-```
+    GET /api/tracks?query={queryString}
 
 The request takes a GET parameter `query` which is a String.
 The endpoint should search tracks which match the query and return a list of tracks.
@@ -424,9 +422,7 @@ The call should respond with HTTP status code 200.
 
 Create a new endpoint, which allows the insertion of multiple tracks to the playlist.
 
-```
-POST /api/playlists/tracks
-```
+    POST /api/playlists/tracks
 
 In the body of the request the endpoint expects a list of strings, which represent the track URIs.
 
