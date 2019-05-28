@@ -382,6 +382,21 @@ public List<Track> getTracksOfPlaylist(String playlistId) {
 Now you can start the application, [login](http://localhost:8080/api/login) and access the [tracks of your playlist](http://localhost:8080/api/playlists/tracks).
 
 ::: tip EXERCISE
+
+* The heroku `config` commands makes it easy to manage your app’s config vars.
+
+```bash
+heroku config:set spotifyPlaylist.clientId=<CLIENT ID>
+heroku config:set spotifyPlaylist.clientSecret=<CLIENT SECRET>
+heroku config:set spotifyPlaylist.playlistId=<PLAYLIST ID>
+heroku config:set spotifyPlaylist.redirectUrl=https://<APPLICATION NAME>.herokuapp.com/api/spotify-redirect
+```
+
+* Push your changes to Heroku and test the application.
+
+:::
+
+::: tip EXERCISE
 Create the following endpoint:
 
     GET /api/tracks?query={queryString}
@@ -440,15 +455,5 @@ curl --header "Content-Type: application/json" \
 ### Example result
 
 The call should respond with HTTP status code 200 and the tracks are added to the playlist.
-
-:::
-
-::: tip EXERCISE
-
-* Push your changes to Heroku and test the application. The heroku `config` commands makes it easy to manage your app’s config vars.
-
-```bash
-heroku config:set spotifyPlaylist.clientId=<CLIENT_ID>
-```
 
 :::
