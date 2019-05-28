@@ -148,8 +148,8 @@ This will allow us to encapsulate access to the REST controller in a single clas
 
     ```typescript
     import {Component, OnInit} from '@angular/core';
-    import {Track} from '../model/track';
-    import {SpotifyService} from '../service/spotify.service';
+    import {Track} from '../models/track.model';
+    import {SpotifyService} from '../services/spotify.service';
 
     @Component({
       selector: 'app-playlist',

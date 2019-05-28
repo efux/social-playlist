@@ -6,7 +6,7 @@ In this chapter you will learn how to connect to the Spotify API using a Java wr
 
 ## Set up your developer account
 
-Prior to using the Spotify API you have to create yourself a developer account. Navigate to <https://developer.spotify.com/dashboard/> and log in with your account. Create a new app.
+Prior to using the Spotify API you have to create a developer account. Navigate to <https://developer.spotify.com/dashboard/> and log in with your account. Create a new app.
 
 ![Create a new application on the Spotify Dashboard](./figures/spotifydashboard.png)
 
@@ -79,7 +79,7 @@ public class TrackDto {
 
 We are creating those two very similar classes, because they serve different purposes.
 `Track` is used internally as an entity, which will be mapped to from the corresponding classes of the Spotify Web API.
-`TrackDto` is used as the DTO, which is send over the web by the REST controller.
+`TrackDto` is used as the DTO, which is sent over the web by the REST controller.
 
 ## Login to the Spotify Web API
 
@@ -133,7 +133,7 @@ You can see that we inject with `@Value` the properties we have set in `applicat
 In the constructor we instantiate an object of the `SpotifyApi` class.
 The `SpotifyApi` class is part of the wrapper library.
 
-The `@Component` annotation before the class definition is needed by Spring Boot and allows us to later on inject instances of this class as a dependency to other classes.
+The `@Component` annotation before the class definition is needed by Spring Boot and it will allow us to inject instances of this class as a dependency into other classes.
 
 ```java
 @Component
@@ -370,7 +370,7 @@ public List<Track> getTracksOfPlaylist(String playlistId) {
         Paging<PlaylistTrack> paging = getPlaylistRequest.execute();
         return Arrays.stream(paging.getItems())
                 .map(PlaylistTrack::getTrack)
-                .map(SpotifyClient::map)g
+                .map(SpotifyClient::map)
                 .collect(toList());
     } catch (IOException | SpotifyWebApiException e) {
         System.err.println("Error: " + e.getMessage());
